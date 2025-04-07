@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.spring.models.DTO.UserDTO;
 import com.spring.spring.models.User;
+
 
 
 
@@ -30,5 +32,24 @@ public class UserRestController {
         
         return body;
     
+    }
+
+    @GetMapping("/index2")
+    public UserDTO perfilDTO(){
+       User[] array = new User[5];
+
+        array[0] = new User("Andryk", "Trujillo Chama", "zs23004743@hotmail.com", "2712542342", "Luis sanchez av.3");
+        array[1] = new User("Andryk", "Trujillo Chama", "zs23004743@hotmail.com", "2712542342", "Luis sanchez av.3");
+        array[2] = new User("Andryk", "Trujillo Chama", "zs23004743@hotmail.com", "2712542342", "Luis sanchez av.3");
+        array[3] = new User("Andryk", "Trujillo Chama", "zs23004743@hotmail.com", "2712542342", "Luis sanchez av.3");
+        array[4] = new User("Andryk", "Trujillo Chama", "zs23004743@hotmail.com", "2712542342", "Luis sanchez av.3");
+        for (User usu : array) {
+            usu.setNombre(usu.getNombre() + " " + usu.getApellidos());
+        }
+        
+        UserDTO userDTO = new UserDTO(array);
+        
+
+        return userDTO;
     }
 }
